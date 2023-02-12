@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 const Person = (props) => {
   return (
@@ -11,14 +12,17 @@ const Person = (props) => {
 };
 
 const App = () => {
-  const name = "Dastan";
-  const isUserLoggedIn = false;
+  const [counter, setCounter] = useState(0);
 
   return (
     <div className="App">
-      <Person name="Dastan" lastname="Akatov" age={19} />
-      <Person name="Sultan" lastname="Toktamambetov" age={18} />
-      <Person />
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>
+        -
+      </button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}>
+        +
+      </button>
     </div>
   );
 };
